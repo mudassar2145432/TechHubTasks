@@ -30,24 +30,24 @@ A fully responsive, real-time weather dashboard web application built using **HT
 
 
 🔧 How It Works
-Weather data is stored in DynamoDB with fields like temperature, humidity, description, timestamp, etc.
-A Lambda function reads from DynamoDB and returns city-wise weather data in JSON.
-API Gateway provides a public HTTPS endpoint for the Lambda.
-On page load, the frontend (index.html) fetches this data and displays it dynamically.
-User can select different cities from the dropdown to view updated weather data—no page reload needed.
+Weather data is stored in DynamoDB with fields like temperature, humidity, description, timestamp, etc.
+A Lambda function reads from DynamoDB and returns city-wise weather data in JSON.
+API Gateway provides a public HTTPS endpoint for the Lambda.
+On page load, the frontend (index.html) fetches this data and displays it dynamically.
+User can select different cities from the dropdown to view updated weather data—no page reload needed.
 
 
 🛠️ Setup & Deployment Instructions
 🔹 Backend (AWS)
-Create DynamoDB Table:
-Table name: WeatherData
-Primary key: location (String)
-Insert Sample Weather Data:
-Use AWS Console or a script to add JSON entries for different cities.
-Create Lambda Function:
-Use Python or Node.js to scan data from DynamoDB.
-Return JSON-formatted results.
-Create API Gateway Endpoint:
+Create DynamoDB Table:
+Table name: WeatherData
+Primary key: location (String)
+Insert Sample Weather Data:
+Use AWS Console or a script to add JSON entries for different cities.
+Create Lambda Function:
+Use Python or Node.js to scan data from DynamoDB.
+Return JSON-formatted results.
+Create API Gateway Endpoint
 Create a REST API.
 Connect it to your Lambda function using a GET method.
 Enable CORS and deploy the API.
