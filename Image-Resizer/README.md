@@ -1,7 +1,7 @@
- Serverless Image Processing Web App (Flask + AWS Lambda + S3)
+🌸 Serverless Image Processing Web App (Flask + AWS Lambda + S3)
 This project allows users to upload an image through a web interface. The image is then processed by a serverless AWS Lambda function triggered by S3 — resizing it and adding a watermark — and finally returned to the user through the Flask web app.
 
- Features
+🚀 Features
 Upload image via web page
 
 Resize and watermark the image using Pillow
@@ -14,8 +14,8 @@ Clean & responsive UI (HTML + CSS + JS)
 
 Serverless backend using AWS Lambda, S3, IAM
 
- Technologies & Services Used
- Frontend:
+🧰 Technologies & Services Used
+🖥️ Frontend:
 HTML5 + CSS3
 
 Vanilla JavaScript
@@ -38,7 +38,7 @@ IAM Role: Permissions for Lambda to access S3
 
 (Optional): Lambda Layers for Pillow dependencies
 
- How It Works (Architecture)
+🛠️ How It Works (Architecture)
 User uploads an image via the Flask app
 
 Flask app sends image to S3 bucket
@@ -51,7 +51,20 @@ Processed image is saved back to a separate folder in S3 (processed/)
 
 Flask app fetches and displays the processed image
 
-
+⚙️ Project Structure
+bash
+Copy
+Edit
+image-processor/
+│
+├── app.py                  # Flask app
+├── requirements.txt        # Python dependencies
+├── templates/
+│   └── index.html          # HTML UI
+├── static/
+│   ├── css/style.css       # Styles
+│   └── js/script.js        # (Optional) Scripts
+└── README.md               # You're here!
 💻 How to Run This Locally
 1. Clone the repo
 bash
@@ -77,7 +90,7 @@ Edit
 python app.py
 Open your browser and go to http://localhost:5000
 
- Deploying the Lambda Function
+📦 Deploying the Lambda Function
 Follow these only if you're setting up the serverless image processing with AWS.
 
 Create S3 bucket
@@ -100,7 +113,7 @@ IAM Permissions
 
 Give your Lambda role permissions to read/write from S3
 
- To Do / Future Ideas
+📌 To Do / Future Ideas
 Add drag-and-drop upload support
 
 Add image format conversion (PNG → JPG)
