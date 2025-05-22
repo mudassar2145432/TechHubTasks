@@ -1,124 +1,108 @@
-🌸 Serverless Image Processing Web App (Flask + AWS Lambda + S3)
-This project allows users to upload an image through a web interface. The image is then processed by a serverless AWS Lambda function triggered by S3 — resizing it and adding a watermark — and finally returned to the user through the Flask web app.
+#  Serverless Image Processing Web App (Flask + AWS Lambda + S3)
 
-🚀 Features
-Upload image via web page
+This project allows users to upload an image through a web interface. The image is then processed by a **serverless AWS Lambda function** triggered by S3 — resizing it and adding a watermark — and finally returned to the user through the Flask web app.
 
-Resize and watermark the image using Pillow
+---
 
-View both original and processed images
+### Features
 
-Download processed image
+- Upload image via web page  
+- Resize and watermark the image using **Pillow**
+- View both **original and processed** images
+- Download processed image
+- Clean & responsive UI (HTML + CSS + JS)
+- **Serverless backend** using AWS Lambda, S3, IAM
 
-Clean & responsive UI (HTML + CSS + JS)
+---
 
-Serverless backend using AWS Lambda, S3, IAM
+### Technologies & Services Used
 
-🧰 Technologies & Services Used
-🖥️ Frontend:
-HTML5 + CSS3
+###  Frontend:
+- HTML5 + CSS3
+- Vanilla JavaScript
+- Responsive design using Flexbox
 
-Vanilla JavaScript
+### ⚙️ Backend (Local App):
+- Python 3.10+
+- Flask (Web framework)
+- Pillow (Image processing)
 
-Responsive design using Flexbox
+### ☁️ AWS Services:
+- **Amazon S3**: Image storage & Lambda trigger
+- **AWS Lambda**: Image resizing and watermarking
+- **IAM Role**: Permissions for Lambda to access S3
+- **(Optional)**: Lambda Layers for Pillow dependencies
 
-⚙️ Backend (Local App):
-Python 3.10+
+---
 
-Flask (Web framework)
+##  How It Works (Architecture)
 
-Pillow (Image processing)
+1. User uploads an image via the Flask app  
+2. Flask app sends image to S3 bucket  
+3. S3 triggers a Lambda function  
+4. Lambda resizes and watermarks the image  
+5. Processed image is saved back to a `processed/` folder in S3  
+6. Flask app fetches and displays the processed image  
 
-☁️ AWS Services:
-Amazon S3: Image storage & Lambda trigger
 
-AWS Lambda: Image resizing and watermarking
 
-IAM Role: Permissions for Lambda to access S3
+##  How to Run This Locally
 
-(Optional): Lambda Layers for Pillow dependencies
+### 1. Clone the repo
 
-🛠️ How It Works (Architecture)
-User uploads an image via the Flask app
-
-Flask app sends image to S3 bucket
-
-S3 triggers a Lambda function
-
-Lambda resizes and watermarks the image
-
-Processed image is saved back to a separate folder in S3 (processed/)
-
-Flask app fetches and displays the processed image
-
-⚙️ Project Structure
-bash
-Copy
-Edit
-image-processor/
-│
-├── app.py                  # Flask app
-├── requirements.txt        # Python dependencies
-├── templates/
-│   └── index.html          # HTML UI
-├── static/
-│   ├── css/style.css       # Styles
-│   └── js/script.js        # (Optional) Scripts
-└── README.md               # You're here!
-💻 How to Run This Locally
-1. Clone the repo
-bash
-Copy
-Edit
+```bash
 git clone https://github.com/your-username/image-processor.git
 cd image-processor
-2. Create a virtual environment (optional but recommended)
-bash
-Copy
-Edit
+```
+
+### 2. Create a virtual environment (optional)
+
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-3. Install dependencies
-bash
-Copy
-Edit
+```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
-4. Run the Flask app
-bash
-Copy
-Edit
+```
+
+### 4. Run the Flask app
+
+```bash
 python app.py
-Open your browser and go to http://localhost:5000
+```
 
-📦 Deploying the Lambda Function
-Follow these only if you're setting up the serverless image processing with AWS.
+Open your browser and go to `http://localhost:5000`
 
-Create S3 bucket
+---
 
-One for uploading images
+## 📦 Deploying the Lambda Function
 
-Create processed/ folder inside for output
+> Follow these if you're setting up the serverless processing on AWS.
 
-Write Lambda function
+1. **Create an S3 bucket**
+   - Create `processed/` folder inside for output
 
-Use Python + Pillow to process image
+2. **Write Lambda function**
+   - Use Python + Pillow to process image
+   - Package with dependencies or use a Lambda Layer
 
-ZIP your function + dependencies or use Lambda Layer
+3. **Add trigger**
+   - In S3: Add event notification to trigger Lambda on upload
 
-Add trigger
+4. **IAM Permissions**
+   - Give Lambda role S3 read/write access
 
-In S3: Add event notification to trigger Lambda on upload
+---
 
-IAM Permissions
+##  To Do / Future Ideas
 
-Give your Lambda role permissions to read/write from S3
+- Drag-and-drop image upload
+- Convert format (e.g., PNG → JPG)
+- Add grayscale, rotate, or blur filters
+- Build public API for developers
 
-📌 To Do / Future Ideas
-Add drag-and-drop upload support
-
-Add image format conversion (PNG → JPG)
-
-Add grayscale or rotate filters
-
-Make API version for frontend apps
+---
 
