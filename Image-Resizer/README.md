@@ -51,8 +51,7 @@ This project allows users to upload an image through a web interface. The image 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/image-processor.git
-cd image-processor
+git clone https://github.com/mudassar2145432/TechHubTasks/blob/main/Image-Resizer
 ```
 
 ### 2. Create a virtual environment (optional)
