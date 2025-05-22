@@ -40,12 +40,14 @@ This project is a simple, elegant mass email distribution system built with a **
 
 
 ## 🚀 Getting Started
+## 🚀 Getting Started
 
-### 1. Clone the Repository
+1. Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/mass-email-sender.git
 cd mass-email-sender
+
 2. Deploy AWS Backend
 Make sure you have:
 
@@ -53,7 +55,7 @@ An AWS account
 
 AWS CLI installed & configured
 
-Email verified in Amazon SES (if in sandbox mode)
+Email verified in Amazon SES (if you're in sandbox mode)
 
 Steps:
 
@@ -63,40 +65,17 @@ Attach an IAM Role with ses:SendEmail permission
 
 Create an API Gateway REST API or HTTP API to trigger the Lambda
 
-Set Lambda code to:
-
-python
-Copy
-Edit
-# Python Lambda (simplified)
-import boto3
-
-ses = boto3.client('ses')
-
-def lambda_handler(event, context):
-    subject = event["subject"]
-    message = event["message"]
-    recipients = ["employee1@example.com", "employee2@example.com"]
-    
-    for email in recipients:
-        ses.send_email(
-            Source="youremail@yourdomain.com",
-            Destination={"ToAddresses": [email]},
-            Message={
-                'Subject': {'Data': subject},
-                'Body': {'Html': {'Data': message}}
-            }
-        )
-    return {"statusCode": 200, "body": "Emails sent!"}
-Deploy the API Gateway endpoint and copy the invoke URL
-
 3. Update Frontend
 In script.js, replace the API URL with your real API Gateway endpoint:
 
 javascript
 Copy
 Edit
-fetch('https://your-api-id.execute-api.us-east-1.amazonaws.com/prod/MassEmailSender', ...)
+fetch('https://your-api-id.execute-api.us-east-1.amazonaws.com/prod/MassEmailSender', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ subject, message })
+});
 4. Run It Locally
 Open index.html in a browser or host it with:
 
@@ -112,6 +91,8 @@ python3 -m http.server  # or use VS Code Live Server
 🟢 Status appears on screen with a spinner
 
 📌 Notes
-SES Sandbox Mode only allows sending to verified email addresses.
+SES Sandbox Mode only allows sending to verified email addresses
 
-To send to unverified recipients, request production access in SES.
+To send to unverified recipients, request production access in SES
+
+
