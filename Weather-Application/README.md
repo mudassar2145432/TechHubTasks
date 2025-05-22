@@ -1,10 +1,10 @@
-# 🌍 Real-Time Weather Dashboard
+#  Real-Time Weather Dashboard
 
 A fully responsive, real-time weather dashboard web application built using **HTML, CSS, and JavaScript**, with a backend powered by **AWS Lambda**, **DynamoDB**, and **API Gateway**. The app is deployed and publicly accessible via **Netlify**.
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Dynamic weather data display (temperature, humidity, pressure, etc.)
 - Interactive city dropdown to view specific weather details
@@ -15,7 +15,7 @@ A fully responsive, real-time weather dashboard web application built using **HT
 
 ---
 
-## 🧱 Tech Stack
+##  Tech Stack
 
 ### Frontend
 - HTML5
@@ -37,8 +37,8 @@ A fully responsive, real-time weather dashboard web application built using **HT
 5. User can select different cities from the dropdown to view updated weather data—no page reload needed.
 
 
-🛠️ Setup & Deployment Instructions
-🔹 Backend (AWS)
+ Setup & Deployment Instructions
+ Backend (AWS)
 1. Create DynamoDB Table:
 2. Table name: WeatherData
 3. Primary key: location (String)
