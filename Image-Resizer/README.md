@@ -22,12 +22,12 @@ This project allows users to upload an image through a web interface. The image 
 - Vanilla JavaScript
 - Responsive design using Flexbox
 
-### ⚙️ Backend (Local App):
+###  Backend (Local App):
 - Python 3.10+
 - Flask (Web framework)
 - Pillow (Image processing)
 
-### ☁️ AWS Services:
+###  AWS Services:
 - **Amazon S3**: Image storage & Lambda trigger
 - **AWS Lambda**: Image resizing and watermarking
 - **IAM Role**: Permissions for Lambda to access S3
@@ -77,7 +77,7 @@ Open your browser and go to `http://localhost:5000`
 
 ---
 
-## 📦 Deploying the Lambda Function
+##  Deploying the Lambda Function
 
 > Follow these if you're setting up the serverless processing on AWS.
 
