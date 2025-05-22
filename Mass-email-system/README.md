@@ -38,6 +38,7 @@ This project is a simple, elegant mass email distribution system built with a **
 5. The frontend displays a success or error message with a loading spinner during processing.
 
 
+
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
@@ -114,4 +115,3 @@ python3 -m http.server  # or use VS Code Live Server
 SES Sandbox Mode only allows sending to verified email addresses.
 
 To send to unverified recipients, request production access in SES.
-
