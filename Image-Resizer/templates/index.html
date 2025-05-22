@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image Processor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <h1>🖼️ Image Processor</h1>
+    <p>Select an image to resize and add watermark</p>
+
+    <form method="post" enctype="multipart/form-data" class="upload-form">
+      <input type="file" name="file" required />
+      <button type="submit">Upload & Process</button>
+    </form>
+
+    {% if original_img and processed_img %}
+    <div class="images">
+      <div class="image-box">
+        <h3>Original Image</h3>
+        <img src="{{ original_img }}" alt="Original" />
+      </div>
+      <div class="image-box">
+        <h3>Processed Image</h3>
+        <img src="{{ processed_img }}" alt="Processed" />
+        <a href="{{ processed_img }}" download="processed.jpg" class="download-btn">⬇️ Download</a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
