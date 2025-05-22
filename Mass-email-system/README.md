@@ -1,10 +1,10 @@
-# 🚀 Mass Email Sender using AWS Lambda, SES, and API Gateway
+#Mass Email Sender using AWS Lambda, SES, and API Gateway
 
 This project is a simple, elegant mass email distribution system built with a **serverless architecture**. It allows you to send HTML emails to multiple recipients from a beautiful web interface.
 
 ---
 
-## 🛠️ Features
+## Features
 
 - Mass email sending via a secure backend
 - Serverless architecture using AWS Lambda & SES
@@ -14,7 +14,7 @@ This project is a simple, elegant mass email distribution system built with a **
 
 ---
 
-## 🧰 Technologies & AWS Services Used
+## Technologies & AWS Services Used
 
 | Technology | Purpose |
 |-----------|---------|
@@ -27,7 +27,7 @@ This project is a simple, elegant mass email distribution system built with a **
 
 ---
 
-## 🌐 How It Works
+## How It Works
 
 1. User enters an email subject and HTML message in the frontend.
 2. On clicking **"Send Emails"**, it makes a `POST` request to an API Gateway endpoint.
@@ -39,7 +39,7 @@ This project is a simple, elegant mass email distribution system built with a **
 
 
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone the Repository
 git clone https://github.com/mudassar2145432/TechHubTasks/tree/main/Mass-email-system
@@ -68,11 +68,11 @@ Open index.html in a browser or host it with:
 python3 -m http.server  # or use VS Code Live Server
 
 ✅ Output
-🎯 All employees get the email
-✅ You get a confirmation email
-🟢 Status appears on screen with a spinner
+All employees get the email
+You get a confirmation email
+Status appears on screen with a spinner
 
-📌 Notes
+Notes
 SES Sandbox Mode only allows sending to verified email addresses
 To send to unverified recipients, request production access in SES
 
