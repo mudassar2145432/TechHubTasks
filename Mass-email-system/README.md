@@ -42,8 +42,7 @@ This project is a simple, elegant mass email distribution system built with a **
 ## 🚀 Getting Started
 
 1. Clone the Repository
-git clone https://github.com/your-username/mass-email-sender.git
-cd mass-email-sender
+git clone https://github.com/mudassar2145432/TechHubTasks/tree/main/Mass-email-system
 
 2. Deploy AWS Backend
 Make sure you have:
