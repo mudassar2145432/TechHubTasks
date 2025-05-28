@@ -1,21 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Text to Speech with Amazon Polly</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoiceCraft | AI Text-to-Speech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="particles" id="particles"></div>
+  
   <div class="container">
-    <h2>Amazon Polly Text to Speech</h2>
-    <textarea id="textInput" placeholder="Type your text here..."></textarea><br>
-    <button onclick="convertText()">Convert to Audio</button>
+    <header class="dashboard-header">
+      <div class="logo">
+        <i class="fas fa-robot"></i>
+        <h1>VoiceCraft</h1>
+      </div>
+      <p class="subtitle">Transform text into natural-sounding speech with AI</p>
+    </header>
 
-    <div id="audioSection" style="display: none;">
-      <h3>Audio Output</h3>
-      <audio id="audioPlayer" controls></audio>
+    <div class="input-section">
+      <div class="text-input-container">
+        <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+        <div class="input-footer">
+          <span id="charCount">0 characters</span>
+          <button class="voice-btn" id="clearBtn">
+            <i class="fas fa-trash-alt"></i> Clear
+          </button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="convert-btn" id="convertBtn">
+          <i class="fas fa-microphone-alt"></i> Convert to Speech
+        </button>
+      </div>
+    </div>
+
+    <div class="output-section" id="audioSection">
+      <div class="waveform-container" id="waveform">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+      <div class="audio-player">
+        <h3>Your Audio Output</h3>
+        <audio id="audioPlayer" controls></audio>
+        <div class="player-controls">
+          <button class="download-btn" id="downloadBtn">
+            <i class="fas fa-download"></i> Download
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
