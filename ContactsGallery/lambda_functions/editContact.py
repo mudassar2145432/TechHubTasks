@@ -1,22 +1,28 @@
 import boto3
 import json
+import datetime
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('ContactMessages')
 
 def lambda_handler(event, context):
     try:
-        items = []
-        response = table.scan()
-        items.extend(response.get('Items', []))
+        body = json.loads(event['body'])
+        email = body['email']
+        name = body['name']
+        message = body['message']
+        submittedAt = datetime.datetime.utcnow().isoformat()
 
-        # Continue scanning if there is more data
-        while 'LastEvaluatedKey' in response:
-            response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
-            items.extend(response.get('Items', []))
-
-        # Sort items by submittedAt (newest first)
-        sorted_items = sorted(items, key=lambda x: x['submittedAt'], reverse=True)
+        table.update_item(
+            Key={'email': email},
+            UpdateExpression="SET #nm = :n, message = :m, submittedAt = :s",
+            ExpressionAttributeNames={'#nm': 'name'},
+            ExpressionAttributeValues={
+                ':n': name,
+                ':m': message,
+                ':s': submittedAt
+            }
+        )
 
         return {
             'statusCode': 200,
@@ -24,7 +30,7 @@ def lambda_handler(event, context):
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json'
             },
-            'body': json.dumps(sorted_items)
+            'body': json.dumps({'message': 'Contact updated'})
         }
     except Exception as e:
         return {
@@ -33,5 +39,5 @@ def lambda_handler(event, context):
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json'
             },
-            'body': json.dumps({'error': 'Could not fetch contacts', 'details': str(e)})
+            'body': json.dumps({'error': str(e)})
         }
